@@ -13,7 +13,14 @@ export default function Contact() {
   const [form, setForm] = useState({ name:'', email:'', subject:'', message:'' })
   const [sent, setSent] = useState(false)
   const onChange = e => setForm(p => ({ ...p, [e.target.name]: e.target.value }))
-  const onSubmit = e => { e.preventDefault(); setSent(true) }
+  const onSubmit = async e => {
+    e.preventDefault()
+    const data = new FormData()
+    data.append('form-name', 'contact')
+    Object.entries(form).forEach(([k, v]) => data.append(k, v))
+    try { await fetch('/', { method: 'POST', body: data }) } catch {}
+    setSent(true)
+  }
 
   return (
     <section id="contact" className="section-pad" style={{ background:'var(--dark)' }}>

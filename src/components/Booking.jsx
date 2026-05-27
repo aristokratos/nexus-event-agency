@@ -8,7 +8,15 @@ export default function Booking() {
   const [form, setForm] = useState({ name:'', company:'', email:'', phone:'', date:'', guests:'', type:'', budget:'', brief:'' })
 
   const onChange = e => setForm(p => ({ ...p, [e.target.name]: e.target.value }))
-  const onSubmit = e => { e.preventDefault(); setSubmitted(true) }
+  const onSubmit = async e => {
+    e.preventDefault()
+    const data = new FormData()
+    data.append('form-name', 'booking')
+    data.append('booking-type', TABS[tab])
+    Object.entries(form).forEach(([k, v]) => data.append(k, v))
+    try { await fetch('/', { method: 'POST', body: data }) } catch {}
+    setSubmitted(true)
+  }
 
   return (
     <section id="book" className="section-pad">

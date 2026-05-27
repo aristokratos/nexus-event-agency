@@ -39,8 +39,8 @@ export default function Footer() {
             <p className="footer-col-title">Contact</p>
             <p className="footer-link" style={{ cursor:'default' }}>14B Ozumba Mbadiwe Ave</p>
             <p className="footer-link" style={{ cursor:'default' }}>Victoria Island, Lagos</p>
-            <p className="footer-link" style={{ cursor:'default' }}>+234 (0) 801 234 5678</p>
-            <p className="footer-link" style={{ cursor:'default' }}>hello@nexuseventagency.com</p>
+            <p className="footer-link" style={{ cursor:'default' }}>+234 706 198 1497</p>
+            <p className="footer-link" style={{ cursor:'default' }}>Powersimeon@gmail.com</p>
             <a href="#book" className="btn btn-outline btn-sm" style={{ marginTop:20 }}>Book Talent</a>
           </div>
         </div>

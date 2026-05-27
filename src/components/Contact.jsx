@@ -3,8 +3,8 @@ import { useReveal } from '../hooks/useReveal'
 
 const INFO = [
   { icon:'📍', label:'Address', value:'14B Ozumba Mbadiwe Ave, Victoria Island, Lagos' },
-  { icon:'📞', label:'Phone', value:'+234 (0) 801 234 5678' },
-  { icon:'✉', label:'Email', value:'hello@nexuseventagency.com' },
+  { icon:'📞', label:'Phone / WhatsApp', value:'+234 706 198 1497' },
+  { icon:'✉', label:'Email', value:'Powersimeon@gmail.com' },
   { icon:'⏰', label:'Hours', value:'Mon – Fri: 8:00am – 6:00pm WAT' },
 ]
 

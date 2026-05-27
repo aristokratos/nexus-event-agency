@@ -1,80 +1,55 @@
-const columns = [
-  {
-    title: 'Services',
-    links: ['Corporate Events', 'Weddings', 'Concerts & Shows', 'Brand Activations', 'Private Events'],
-  },
-  {
-    title: 'Company',
-    links: ['About Us', 'Our Team', 'Portfolio', 'Careers', 'Press'],
-  },
-  {
-    title: 'Contact',
-    links: [
-      'hello@nexuseventagency.com',
-      '+234 (0) 801 234 5678',
-      'Victoria Island, Lagos',
-      'Mon – Fri: 8am – 6pm',
-    ],
-  },
-]
+import NexusLogo from './NexusLogo'
 
 export default function Footer() {
   return (
-    <footer className="border-t border-[#c9a227]/10 bg-[#040404] px-6 pt-16 pb-8">
-      <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
-          {/* Brand */}
+    <footer>
+      <div className="container">
+        <div className="footer-main">
           <div>
-            <p className="text-xl font-bold tracking-widest uppercase mb-4">
-              <span className="text-[#c9a227]">Nexus</span>
-              <span className="text-white"> Event</span>
+            <a href="#top" className="nav-logo" style={{ marginBottom:20, display:'inline-flex' }}>
+              <NexusLogo />
+              <div className="nav-logo-text" style={{ marginLeft:12 }}>
+                <span className="nav-logo-name">NEXUS</span>
+                <span className="nav-logo-sub">Event Agency</span>
+              </div>
+            </a>
+            <p className="body-sm" style={{ maxWidth:280, marginTop:16 }}>
+              Premium talent architecture and event management across Lagos and Ibadan, Nigeria.
             </p>
-            <p className="text-gray-500 text-sm leading-relaxed">
-              Premium event management crafting extraordinary experiences across Nigeria and West Africa.
-            </p>
-            <div className="flex gap-3 mt-6">
-              {['IG', 'TW', 'FB', 'LI'].map((s) => (
-                <div
-                  key={s}
-                  className="w-8 h-8 border border-white/10 flex items-center justify-center text-gray-500 text-xs hover:border-[#c9a227] hover:text-[#c9a227] cursor-pointer transition-all"
-                >
-                  {s}
-                </div>
-              ))}
+            <div className="social-links" style={{ marginTop:28 }}>
+              {['IG','TW','FB','LI'].map(s => <a key={s} href="#" className="social-link">{s}</a>)}
             </div>
           </div>
 
-          {/* Columns */}
-          {columns.map((col) => (
-            <div key={col.title}>
-              <h4 className="text-white text-sm font-semibold tracking-widest uppercase mb-5">
-                {col.title}
-              </h4>
-              <ul className="space-y-3">
-                {col.links.map((link) => (
-                  <li key={link}>
-                    <a
-                      href="#"
-                      className="text-gray-500 text-sm hover:text-[#c9a227] transition-colors"
-                    >
-                      {link}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
+          <div>
+            <p className="footer-col-title">Services</p>
+            {['Premium Ushering','Fashion Modeling','Media Talent','Brand Activations','Corporate Partnerships','Production Coordination'].map(l => (
+              <a key={l} href="#services" className="footer-link">{l}</a>
+            ))}
+          </div>
+
+          <div>
+            <p className="footer-col-title">Agency</p>
+            {['About Us','Talent Roster','Editorial','Gallery','Testimonials','Careers'].map(l => (
+              <a key={l} href="#about" className="footer-link">{l}</a>
+            ))}
+          </div>
+
+          <div>
+            <p className="footer-col-title">Contact</p>
+            <p className="footer-link" style={{ cursor:'default' }}>14B Ozumba Mbadiwe Ave</p>
+            <p className="footer-link" style={{ cursor:'default' }}>Victoria Island, Lagos</p>
+            <p className="footer-link" style={{ cursor:'default' }}>+234 (0) 801 234 5678</p>
+            <p className="footer-link" style={{ cursor:'default' }}>hello@nexuseventagency.com</p>
+            <a href="#book" className="btn btn-outline btn-sm" style={{ marginTop:20 }}>Book Talent</a>
+          </div>
         </div>
 
-        <div className="border-t border-white/5 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-gray-600 text-xs">
-            © {new Date().getFullYear()} Nexus Event Agency. All rights reserved.
-          </p>
-          <div className="flex gap-6">
-            {['Privacy Policy', 'Terms of Service', 'Cookie Policy'].map((l) => (
-              <a key={l} href="#" className="text-gray-600 text-xs hover:text-gray-400 transition-colors">
-                {l}
-              </a>
+        <div className="footer-bottom">
+          <p className="footer-legal">© {new Date().getFullYear()} Nexus Event Agency. All rights reserved.</p>
+          <div style={{ display:'flex', gap:24 }}>
+            {['Privacy Policy','Terms of Service','Cookie Policy'].map(l => (
+              <a key={l} href="#" className="footer-legal" style={{ transition:'color 0.3s' }}>{l}</a>
             ))}
           </div>
         </div>

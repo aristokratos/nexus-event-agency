@@ -1,84 +1,55 @@
 import { useState, useEffect } from 'react'
-import { Menu, X } from 'lucide-react'
+import NexusLogo from './NexusLogo'
 
-const links = [
-  { label: 'Services', href: '#services' },
-  { label: 'About', href: '#about' },
-  { label: 'Portfolio', href: '#portfolio' },
-  { label: 'Testimonials', href: '#testimonials' },
-  { label: 'Contact', href: '#contact' },
-]
+const LINKS = ['About','Services','Talent','Gallery','Book','Contact']
 
 export default function Navbar() {
-  const [open, setOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
+  const [mobileOpen, setMobileOpen] = useState(false)
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 40)
-    window.addEventListener('scroll', onScroll)
-    return () => window.removeEventListener('scroll', onScroll)
+    const fn = () => setScrolled(window.scrollY > 60)
+    window.addEventListener('scroll', fn, { passive: true })
+    return () => window.removeEventListener('scroll', fn)
   }, [])
 
   return (
-    <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? 'bg-[#080808]/95 backdrop-blur-md border-b border-[#c9a227]/10' : 'bg-transparent'
-      }`}
-    >
-      <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-        <a href="#" className="text-xl font-bold tracking-widest uppercase">
-          <span className="text-[#c9a227]">Nexus</span>
-          <span className="text-white"> Event</span>
+    <>
+      <nav id="navbar" className={scrolled ? 'scrolled' : ''}>
+        <a href="#top" className="nav-logo">
+          <NexusLogo />
+          <div className="nav-logo-text">
+            <span className="nav-logo-name">NEXUS</span>
+            <span className="nav-logo-sub">Event Agency</span>
+          </div>
         </a>
-
-        <nav className="hidden md:flex items-center gap-8">
-          {links.map((l) => (
-            <a
-              key={l.href}
-              href={l.href}
-              className="text-sm tracking-wide text-gray-300 hover:text-[#c9a227] transition-colors duration-200"
-            >
-              {l.label}
-            </a>
+        <div className="nav-links">
+          {LINKS.map(l => (
+            <a key={l} href={`#${l.toLowerCase()}`} className="nav-link">{l}</a>
           ))}
-          <a
-            href="#contact"
-            className="text-sm px-5 py-2 border border-[#c9a227] text-[#c9a227] hover:bg-[#c9a227] hover:text-black transition-all duration-200 tracking-wide uppercase"
-          >
-            Book Now
-          </a>
-        </nav>
-
-        <button
-          className="md:hidden text-white"
-          onClick={() => setOpen(!open)}
-          aria-label="Toggle menu"
-        >
-          {open ? <X size={24} /> : <Menu size={24} />}
-        </button>
-      </div>
-
-      {open && (
-        <div className="md:hidden bg-[#080808]/98 border-t border-[#c9a227]/10 px-6 pb-6 pt-2 flex flex-col gap-4">
-          {links.map((l) => (
-            <a
-              key={l.href}
-              href={l.href}
-              onClick={() => setOpen(false)}
-              className="text-gray-300 hover:text-[#c9a227] transition-colors py-2 border-b border-white/5"
-            >
-              {l.label}
-            </a>
-          ))}
-          <a
-            href="#contact"
-            onClick={() => setOpen(false)}
-            className="text-center text-sm px-5 py-3 border border-[#c9a227] text-[#c9a227] hover:bg-[#c9a227] hover:text-black transition-all tracking-wide uppercase mt-2"
-          >
-            Book Now
-          </a>
         </div>
-      )}
-    </header>
+        <div className="nav-cta-wrap">
+          <a href="#book" className="btn btn-outline btn-sm">Book Talent</a>
+        </div>
+        <button className="hamburger" onClick={() => setMobileOpen(true)} aria-label="Open menu">
+          <span/><span/><span/>
+        </button>
+      </nav>
+
+      <div className={`mobile-menu ${mobileOpen ? 'open' : ''}`}>
+        <button className="mobile-close" onClick={() => setMobileOpen(false)}>✕</button>
+        <a href="#top" className="nav-logo" style={{marginBottom:8}} onClick={() => setMobileOpen(false)}>
+          <NexusLogo size={28}/>
+          <div className="nav-logo-text">
+            <span className="nav-logo-name">NEXUS</span>
+            <span className="nav-logo-sub">Event Agency</span>
+          </div>
+        </a>
+        {LINKS.map(l => (
+          <a key={l} href={`#${l.toLowerCase()}`} className="mobile-link" onClick={() => setMobileOpen(false)}>{l}</a>
+        ))}
+        <a href="#book" className="btn btn-outline" onClick={() => setMobileOpen(false)}>Book Talent</a>
+      </div>
+    </>
   )
 }

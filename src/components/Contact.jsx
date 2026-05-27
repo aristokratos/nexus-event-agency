@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { useReveal } from '../hooks/useReveal'
 
 const INFO = [
-  { icon:'📍', label:'Address', value:'14B Ozumba Mbadiwe Ave, Victoria Island, Lagos' },
+  { icon:'📍', label:'Address', value:'Nigeria' },
   { icon:'📞', label:'Phone / WhatsApp', value:'+234 706 198 1497' },
   { icon:'✉', label:'Email', value:'Powersimeon@gmail.com' },
   { icon:'⏰', label:'Hours', value:'Mon – Fri: 8:00am – 6:00pm WAT' },
@@ -40,7 +40,8 @@ export default function Contact() {
               </div>
             ))}
             <div className="social-links">
-              {['IG','TW','FB','LI','YT'].map(s => (
+              <a href="https://www.instagram.com/nexus_event.agency?igsh=cDVvbnVoajhqb3M=9" target="_blank" rel="noopener noreferrer" className="social-link">IG</a>
+              {['TW','FB','LI','YT'].map(s => (
                 <a key={s} href="#" className="social-link">{s}</a>
               ))}
             </div>

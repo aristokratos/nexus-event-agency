@@ -17,7 +17,8 @@ export default function Footer() {
               Premium talent architecture and event management across Lagos and Ibadan, Nigeria.
             </p>
             <div className="social-links" style={{ marginTop:28 }}>
-              {['IG','TW','FB','LI'].map(s => <a key={s} href="#" className="social-link">{s}</a>)}
+              <a href="https://www.instagram.com/nexus_event.agency?igsh=cDVvbnVoajhqb3M=9" target="_blank" rel="noopener noreferrer" className="social-link">IG</a>
+              {['TW','FB','LI'].map(s => <a key={s} href="#" className="social-link">{s}</a>)}
             </div>
           </div>
 
@@ -37,8 +38,7 @@ export default function Footer() {
 
           <div>
             <p className="footer-col-title">Contact</p>
-            <p className="footer-link" style={{ cursor:'default' }}>14B Ozumba Mbadiwe Ave</p>
-            <p className="footer-link" style={{ cursor:'default' }}>Victoria Island, Lagos</p>
+            <p className="footer-link" style={{ cursor:'default' }}>Nigeria</p>
             <p className="footer-link" style={{ cursor:'default' }}>+234 706 198 1497</p>
             <p className="footer-link" style={{ cursor:'default' }}>Powersimeon@gmail.com</p>
             <a href="#book" className="btn btn-outline btn-sm" style={{ marginTop:20 }}>Book Talent</a>
